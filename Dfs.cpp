@@ -33,7 +33,7 @@ void gInsert(int a,int b){
 }
 //dfs using recursion
 void dfs(int v){
-  cout<<v<<"->";
+  // cout<<v<<"->";
   visited[v]=true;
   for(int i=0;i<g[v].size();i++){
       if(!visited[g[v][i]]){
@@ -55,8 +55,18 @@ int main(){
       int a,b;
       cin>>a>>b;
       gInsert(a,b);
+
     }
-    dfs(2);
+    int  connected_comoponent =0;
+      for(int i=0;i<n;i++){
+          if(!visited[i]){
+            connected_comoponent++;
+            dfs(i);
+            
+          }
+      }
+      cout<<connected_comoponent<<endl;
+    
     
 
  return 0;
